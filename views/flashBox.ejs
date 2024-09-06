@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Flash Messages Example</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    margin-top: 20px;
+}
+
+.flash-messages {
+    margin-top: 20px;
+}
+
+.flash-message {
+    background-color: #dff0d8;
+    color: #3c763d;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px auto;
+    width: 300px;
+}
+    </style>
+    <script>
+        // const messageText = message.split('_');
+    </script>
+</head>
+<body>
+    <h1>Not valid Info</h1>
+    <% if (messages.length > 0) { %>
+    <div class="flash-messages">
+        <% messages.forEach(message => { %>
+        <div class="flash-message">
+            <%= message %>
+        </div>
+        <% }); %>
+    </div>
+    <a href="<%= backUrl %>">Go back</a>
+    <% } %>
+</body>
+</html>

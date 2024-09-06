@@ -1,0 +1,307 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                screens: {
+                    xs: '320px',
+                    sm: '480px',
+                    md: '768px',
+                    lg: '976px',
+                    xl: '1440px',
+                },
+                extend: {}
+            }
+        }
+        
+    </script>
+</head>
+
+<body>
+    <section class="py-10 my-auto dark:bg-gray-900">
+        <div class="lg:w-[80%] md:w-[90%] xs:w-[96%] mx-auto flex gap-4">
+            <div
+                class="lg:w-[88%] md:w-[80%] sm:w-[88%] xs:w-full mx-auto shadow-2xl p-4 rounded-xl h-fit self-center dark:bg-gray-800/40">
+                <div class="">
+                    <h1
+                        class="lg:text-3xl md:text-2xl sm:text-xl xs:text-xl font-serif font-extrabold mb-2 dark:text-white">
+                        Profile
+                    </h1>
+                    <h2 class="text-grey text-sm mb-4 dark:text-gray-400">Create Profile</h2>
+                    <form action="/api/user/registerUser" method="POST" enctype="multipart/form-data">
+                        <div
+                            class="w-full relative rounded-sm bg-[url('https://images.pexels.com/photos/1996035/pexels-photo-1996035.jpeg')] bg-cover bg-center bg-no-repeat flex flex-col flex-warp items-center justify-center py-4 ">
+                            <div
+                                class="mx-auto flex justify-center w-[10rem] h-[10rem] bg-blue-300/20 rounded-full bg-[url('https://img.freepik.com/premium-photo/businessman-icon-businessman-icon-businessman-icon-vector-illustration_1308157-12973.jpg?w=740')] bg-cover bg-center bg-no-repeat">
+
+                                <div class=" bg-white/90 rounded-full w-6 h-6 text-center ml-28 mt-3 ">
+
+                                    <input type="file" name="profileImage" id="upload_profile" hidden >
+
+                                    <label for="upload_profile">
+                                        <svg data-slot="icon" class="w-6 h-5 text-blue-700" fill="none"
+                                            stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24"
+                                            xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M6.827 6.175A2.31 2.31 0 0 1 5.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 0 0-1.134-.175 2.31 2.31 0 0 1-1.64-1.055l-.822-1.316a2.192 2.192 0 0 0-1.736-1.039 48.774 48.774 0 0 0-5.232 0 2.192 2.192 0 0 0-1.736 1.039l-.821 1.316Z">
+                                            </path>
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M16.5 12.75a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0ZM18.75 10.5h.008v.008h-.008V10.5Z">
+                                            </path>
+                                        </svg>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="flex justify-end ms-auto absolute bottom-0 right-0 ">
+                                <input type="file" name="coverImage" id="upload_cover" hidden >
+                                <div
+                                    class="bg-white flex items-center gap-1 rounded-tl-md px-2 text-center font-semibold">
+                                    <label for="upload_cover"
+                                        class="inline-flex items-center gap-1 cursor-pointer">Cover
+
+                                        <svg data-slot="icon" class="w-6 h-5 text-blue-700" fill="none"
+                                            stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24"
+                                            xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M6.827 6.175A2.31 2.31 0 0 1 5.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 0 0-1.134-.175 2.31 2.31 0 0 1-1.64-1.055l-.822-1.316a2.192 2.192 0 0 0-1.736-1.039 48.774 48.774 0 0 0-5.232 0 2.192 2.192 0 0 0-1.736 1.039l-.821 1.316Z">
+                                            </path>
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M16.5 12.75a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0ZM18.75 10.5h.008v.008h-.008V10.5Z">
+                                            </path>
+                                        </svg>
+                                    </label>
+                                </div>
+
+                            </div>
+                        </div>
+                        <h2 class="text-center mt-1 font-semibold dark:text-gray-300">Upload Profile and Cover Image
+                        </h2> 
+                        <div class="flex lg:flex-row md:flex-col sm:flex-col xs:flex-col gap-2 justify-center w-full">
+                            <div class="w-full  mb-4 mt-6">
+                                <label for="" class="mb-2 dark:text-gray-300">First Name</label>
+                                <input type="text" name="firstName"
+                                    class="mt-2 p-4 w-full border-2 rounded-lg dark:text-gray-200 dark:border-gray-600 dark:bg-gray-800"
+                                    placeholder="First Name">
+                            </div>
+                            <div class="w-full  mb-4 lg:mt-6">
+                                <label for="" class=" dark:text-gray-300">Last Name</label>
+                                <input type="text" name="lastName"
+                                    class="mt-2 p-4 w-full border-2 rounded-lg dark:text-gray-200 dark:border-gray-600 dark:bg-gray-800"
+                                    placeholder="Last Name">
+                            </div>
+                        </div>
+                        <div class="flex lg:flex-row md:flex-col sm:flex-col xs:flex-col gap-2 justify-center w-full">
+                            <div class="w-full  mb-4 mt-6">
+                                <label for="email" class="mb-2 dark:text-gray-300">Email</label>
+                                <input type="email" name="email" id="email"
+                                    class="mt-2 p-4 w-full border-2 rounded-lg dark:text-gray-200 dark:border-gray-600 dark:bg-gray-800"
+                                    placeholder="Email">
+                            </div>
+                            <div class="w-full  mb-4 lg:mt-6">
+                                <label for="password" class=" dark:text-gray-300">password</label>
+                                <input type="password" name="password" id="password"
+                                    class="mt-2 p-4 w-full border-2 rounded-lg dark:text-gray-200 dark:border-gray-600 dark:bg-gray-800"
+                                    placeholder="Password">
+                            </div>
+                        </div>
+                        <div class="w-full rounded-lg bg-blue-500 mt-4 text-white text-lg font-semibold">
+                            <input type="submit" class="w-full p-4  hover:bg-blue-100" value="Submit">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                screens: {
+                    xs: '320px',
+                    sm: '480px',
+                    md: '768px',
+                    lg: '976px',
+                    xl: '1440px',
+                },
+                extend: {}
+            }
+        };
+
+        function handleImageUpload(event, targetId) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById(targetId).style.backgroundImage = `url(${e.target.result})`;
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function handleCoverImage(event, targetId) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById(targetId).style.backgroundImage = `url(${e.target.result})`;
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <nav
+    class="sticky top-0 z-10 block w-full max-w-full px-4 py-2  bg-white border rounded-none shadow-md h-max border-white/80 bg-opacity-80 backdrop-blur-2xl backdrop-saturate-200 lg:px-8 lg:py-4">
+    <div class="flex items-center justify-between text-blue-gray-900">
+      <a href="/" class=" ">
+        <div class="h-10 w-10">
+          <?xml version="1.0" ?><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <title />
+            <path
+              d="M30.5,57H4a1,1,0,0,1-1-1V7A1,1,0,0,1,4,6H29.5a13.5,13.5,0,0,1,6.67,25.24A13.5,13.5,0,0,1,30.5,57ZM5,55H30.5a11.5,11.5,0,0,0,2.73-22.68,1,1,0,0,1-.07-1.92A11.48,11.48,0,0,0,41,19.5,11.51,11.51,0,0,0,29.5,8H5Z" />
+            <path
+              d="M53.17,25.45a1,1,0,0,1-.88-.53l-1.9-3.52a1,1,0,0,1,.4-1.35,7.9,7.9,0,0,0,2-1.51A6,6,0,1,1,61,13a14,14,0,0,1-7.36,12.33A1,1,0,0,1,53.17,25.45Zm-.57-4.16,1,1.77A12,12,0,0,0,59,13a4,4,0,1,0-4.4,4,1,1,0,0,1,.73,1.55A10.14,10.14,0,0,1,52.6,21.29Z" />
+            <path
+              d="M26.5,29H12a1,1,0,0,1-1-1V15a1,1,0,0,1,1-1H26.5a7.5,7.5,0,0,1,0,15ZM13,27H26.5a5.5,5.5,0,0,0,0-11H13Z" />
+            <path
+              d="M26.5,50H12a1,1,0,0,1-1-1V36a1,1,0,0,1,1-1H26.5a7.5,7.5,0,0,1,0,15ZM13,48H26.5a5.5,5.5,0,0,0,0-11H13Z" />
+          </svg>
+        </div>
+      </a>
+      <div class="flex items-center gap-4">
+        <div class="flex items-center gap-x-2">
+          <a href="/api/user/login"
+            class="hidden px-4 font-sans text-xs font-bold text-center text-gray-900 uppercase align-middle transition-all rounded-lg select-none hover:bg-gray-900/10 active:bg-gray-900/20 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none lg:inline-block"
+            type="button">
+            <?xml version="1.0" ?><svg height="38" viewBox="0 0 48 48" width="38" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 0h48v48H0z" fill="none" />
+              <path
+                d="M20.17 31.17L23 34l10-10-10-10-2.83 2.83L25.34 22H6v4h19.34l-5.17 5.17zM38 6H10c-2.21 0-4 1.79-4 4v8h4v-8h28v28H10v-8H6v8c0 2.21 1.79 4 4 4h28c2.21 0 4-1.79 4-4V10c0-2.21-1.79-4-4-4z" />
+            </svg>
+        </a>
+        </div>
+        <button
+          class="relative ml-auto h-6 max-h-[40px] w-6 max-w-[40px] select-none rounded-lg text-center align-middle font-sans text-xs font-medium uppercase text-inherit transition-all hover:bg-transparent focus:bg-transparent active:bg-transparent disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none lg:hidden"
+          type="button">
+          <span class="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- form -->
+
+
+    <section class="py-10 my-auto dark:bg-gray-900">
+        <div class="lg:w-[80%] md:w-[90%] xs:w-[96%] mx-auto flex gap-4">
+            <div class="lg:w-[88%] md:w-[80%] sm:w-[88%] xs:w-full mx-auto shadow-2xl p-4 rounded-xl h-fit self-center dark:bg-gray-800/40">
+                <div class="">
+                    <h1 class="lg:text-3xl md:text-2xl sm:text-xl xs:text-xl font-serif font-extrabold mb-2 dark:text-white">
+                        Profile
+                    </h1>
+                    <h2 class="text-grey text-sm mb-4 dark:text-gray-400">Create Profile</h2>
+                    <form action="/api/user/registerUser" method="POST" enctype="multipart/form-data">
+                        <div id="coverImageContainer" class="w-full relative rounded-sm bg-[url('https://images.pexels.com/photos/1996035/pexels-photo-1996035.jpeg')] bg-cover bg-center bg-no-repeat flex flex-col items-center justify-center py-4">
+                            <div id="profileImageContainer" class="mx-auto flex justify-center w-[10rem] h-[10rem] bg-blue-300/20 rounded-full bg-[url('https://img.freepik.com/premium-photo/businessman-icon-businessman-icon-businessman-icon-vector-illustration_1308157-12973.jpg?w=740')] bg-cover bg-center bg-no-repeat">
+                                <div class="bg-white/90 rounded-full w-6 h-6 text-center ml-28 mt-3">
+                                    <input type="file" name="profileImage" id="upload_profile" hidden onchange="handleImageUpload(event, 'profileImageContainer')">
+                                    <label for="upload_profile">
+                                        <svg data-slot="icon" class="w-6 h-5 text-blue-700" fill="none"
+                                            stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24"
+                                            xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M6.827 6.175A2.31 2.31 0 0 1 5.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 0 0-1.134-.175 2.31 2.31 0 0 1-1.64-1.055l-.822-1.316a2.192 2.192 0 0 0-1.736-1.039 48.774 48.774 0 0 0-5.232 0 2.192 2.192 0 0 0-1.736 1.039l-.821 1.316Z">
+                                            </path>
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M16.5 12.75a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0ZM18.75 10.5h.008v.008h-.008V10.5Z">
+                                            </path>
+                                        </svg>
+                                    </label>
+                                </div>
+                            </div>
+                            <div  class="flex justify-end ms-auto absolute bottom-0 right-0">
+                                <input type="file" name="coverImage" id="upload_cover" hidden onchange="handleCoverImage(event, 'coverImageContainer')">
+                                <div class="bg-white flex items-center gap-1 rounded-tl-md px-2 text-center font-semibold">
+                                    <label for="upload_cover" class="inline-flex items-center gap-1 cursor-pointer">Cover
+                                        <svg data-slot="icon" class="w-6 h-5 text-blue-700" fill="none"
+                                            stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24"
+                                            xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M6.827 6.175A2.31 2.31 0 0 1 5.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 0 0-1.134-.175 2.31 2.31 0 0 1-1.64-1.055l-.822-1.316a2.192 2.192 0 0 0-1.736-1.039 48.774 48.774 0 0 0-5.232 0 2.192 2.192 0 0 0-1.736 1.039l-.821 1.316Z">
+                                            </path>
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M16.5 12.75a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0ZM18.75 10.5h.008v.008h-.008V10.5Z">
+                                            </path>
+                                        </svg>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <h2 class="text-center mt-1 font-semibold dark:text-gray-300">Upload Profile and Cover Image</h2>
+                        <!-- form fields -->
+                        <div class="flex lg:flex-row md:flex-col sm:flex-col xs:flex-col gap-2 justify-center w-full">
+                            <div class="w-full mb-4 mt-6">
+                                <label for="" class="mb-2 dark:text-gray-300">First Name</label>
+                                <input type="text" name="firstName"
+                                    class="mt-2 p-4 w-full border-2 rounded-lg dark:text-gray-200 dark:border-gray-600 dark:bg-gray-800"
+                                    placeholder="First Name">
+                            </div>
+                            <div class="w-full mb-4 lg:mt-6">
+                                <label for="" class="dark:text-gray-300">Last Name</label>
+                                <input type="text" name="lastName"
+                                    class="mt-2 p-4 w-full border-2 rounded-lg dark:text-gray-200 dark:border-gray-600 dark:bg-gray-800"
+                                    placeholder="Last Name">
+                            </div>
+                        </div>
+                        <div class="flex lg:flex-row md:flex-col sm:flex-col xs:flex-col gap-2 justify-center w-full">
+                            <div class="w-full mb-4 mt-6">
+                                <label for="email" class="mb-2 dark:text-gray-300">Email</label>
+                                <input type="email" name="email" id="email"
+                                    class="mt-2 p-4 w-full border-2 rounded-lg dark:text-gray-200 dark:border-gray-600 dark:bg-gray-800"
+                                    placeholder="Email">
+                            </div>
+                            <div class="w-full mb-4 lg:mt-6">
+                                <label for="password" class="dark:text-gray-300">Password</label>
+                                <input type="password" name="password" id="password"
+                                    class="mt-2 p-4 w-full border-2 rounded-lg dark:text-gray-200 dark:border-gray-600 dark:bg-gray-800"
+                                    placeholder="Password">
+                            </div>
+                        </div>
+                        <div class="w-full rounded-lg bg-blue-500 mt-4 text-white text-lg font-semibold">
+                            <input type="submit" class="w-full p-4 hover:bg-blue-100" value="Submit">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
